@@ -4,7 +4,15 @@
 [Udagram ReverseProxy](https://github.com/ntickoo/udagram-reverseproxy)  
 [Udagram User Microservice](https://github.com/ntickoo/udagram-api-user)  
 [Udagram Feed Microservice](https://github.com/ntickoo/udagram-api-feed)  
-[Environment Config and Project submission Details]()  
+[Environment Config and Project submission Details](https://github.com/ntickoo/kubernetes-config)
+
+Docker build files and kubernetes deployment and service files are in the deploy project of each module e.g. frontend, reverseproxy, user, feed microservice. This was done to speed up and simplify docker build.
+
+[UDAGRAM URL](http://a0f91204ff0604b7f822d63d32385554-689742264.ca-central-1.elb.amazonaws.com:8100)  
+The above url will be removed as keeping the cluster alive is accruing lot of charges.
+
+screenshot directory contains all the project submission requirements.
+
 # Docker Deployment
 ----------
 # Apply env variables and secrets
@@ -32,12 +40,6 @@ kubectl apply -f ../udagram-frontend/deploy/service.yaml
 
 kubectl get deployments
 
-[comment]: NAME           READY   UP-TO-DATE   AVAILABLE   AGE
-[comment]: backend-feed   2/2     2            2           32m
-[comment]: backend-user   2/2     2            2           32m
-[comment]: frontend       2/2     2            2           32m
-[comment]: reverseproxy   2/2     2            2           32m
-
 kubectl expose deployment frontend --type=LoadBalancer --name=publicfrontend
 kubectl expose deployment reverseproxy --type=LoadBalancer --name=publicreverseproxy
 
@@ -51,8 +53,6 @@ http://ad45713d3b8654e85875ffada715bc0e-1209343989.ca-central-1.elb.amazonaws.co
 
 http://a0f91204ff0604b7f822d63d32385554-689742264.ca-central-1.elb.amazonaws.com:8100
 
-
-kubectl exec --stdin --tty    -- /bin/bash
 
 
 
